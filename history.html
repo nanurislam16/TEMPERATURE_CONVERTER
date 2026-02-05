@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>History</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="stylesheet" href="history.css" />
+</head>
+<body>
+  <div class="history-container">
+    <h2>🌡 Temperature Conversion History</h2>
+
+    <!-- Buttons on top -->
+    <div class="btn-container">
+      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="clearHistory()" class="danger">🗑 Clear History</button>
+      <button onclick="downloadPDF()">⬇ Download PDF</button>
+    </div>
+
+    <!-- Stable Header Row -->
+    <div class="history-header" style="
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr; /* SL | Date | Result */
+        background: #1b1f2f;
+        padding: 12px;
+        font-weight: 600;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    ">
+      <span>SL</span>
+      <span>Date & Time</span>
+      <span>Result</span>
+    </div>
+
+    <!-- Scrollable History List -->
+    <div class="history-list-wrapper">
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <!-- Confirmation modal -->
+  <div id="confirmBox" class="confirm-box">
+    <div class="confirm-content">
+      <p>⚠ Are you sure you want to clear all history?</p>
+      <div class="confirm-buttons">
+        <button id="confirmYes" class="yes">Yes</button>
+        <button id="confirmNo" class="no">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toastContainer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

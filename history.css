@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(1445deg, #191820, #0f3b38cf);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Main Container */
+.history-container {
+  background: rgba(5, 2, 15, 0.95);
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.788), 0 0 60px rgba(0,0,100,0.3);
+  width: 90%;
+  max-width: 800px;
+  height: 600px; /* Fixed height for scrollable history */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Header */
+.history-container h2 {
+  color: #e2e2e2;
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-align: center;
+  text-shadow: 0 0 10px #88d1ff, 0 0 20px #001133;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5,2,15,0.95);
+  padding: 10px 0;
+  border-radius: 12px;
+}
+
+/* Buttons Container */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  position: sticky;
+  top: 60px; /* Below header */
+  z-index: 90;
+  background: rgba(5,2,15,0.95);
+  padding: 10px 0;
+  border-radius: 12px;
+}
+.btn-container button {
+  background: linear-gradient(135deg, #001f4d, #003366);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+.btn-container button:hover {
+  background: white;
+  color: #001f4d;
+  box-shadow: 0 0 20px white, 0 0 40px #0077ff;
+}
+.btn-container .danger { background-color: #a83232; }
+.btn-container .danger:hover { background-color: #7a2222; }
+
+/* Scrollable History List */
+.history-list-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden; /* disable horizontal scroll */
+  padding-right: 5px;
+}
+#historyList li {
+  background-color: #b2b4bf; /* default row color */
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* subtle shadow */
+  display: grid;
+  grid-template-columns: 50px 1fr 1fr; /* SL | Date | Result */
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden; /* prevent horizontal scroll */
+  width: 100%;
+  box-sizing: border-box;
+  color: #ffffff; /* default text color */
+  cursor: pointer; /* cursor pointer on hover */
+}
+
+/* Hover effect: full box white + text black + shadow */
+#historyList li:hover {
+  background-color: #ffffff; /* full box white */
+  color: #ffffff; /* text black */
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(148, 208, 234, 0.886); /* subtle shadow on hover */
+}
+
+/* Prevent horizontal scroll for text overflow */
+#historyList li span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Modal / Toast */
+.confirm-box { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 9999; }
+.confirm-box.show { display:flex; }
+.confirm-content { background: rgba(5,2,15,0.95); padding: 25px 30px; border-radius:12px; text-align:center; min-width:280px;}
+.confirm-buttons { display:flex; justify-content:center; gap:15px; margin-top:15px;}
+.confirm-buttons .yes { background-color:#2f8030;}
+.confirm-buttons .yes:hover { background-color:#1a5020;}
+.confirm-buttons .no { background-color:#a83232;}
+.confirm-buttons .no:hover { background-color:#7a2222;}
+
+#toastContainer { position: fixed; top:20px; right:20px; z-index:10000;}
+.toast { background:#2f4a80; color:#fff; padding:10px 18px; border-radius:6px; opacity:0; transform:translateY(-20px); transition: all 0.3s;}
+.toast.show { opacity:1; transform:translateY(0);}
+
+/* Disable text selection globally */
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+/* Allow selection only in input, select, textarea */
+input, select, textarea {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+}
+/* Default cursor */
+body, div, span, h1, h2, h3, p {
+  cursor: default;
+}
+
+
+

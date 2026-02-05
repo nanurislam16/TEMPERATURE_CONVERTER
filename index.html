@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title >Temperature Converter</title>
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌡️ Temperature Converter</h1>
+    
+
+    <div class="converter-box">
+      <input type="number" id="tempInput" placeholder="Enter temperature">
+      
+      <select id="fromUnit">
+        <option value="C">Celsius (°C)</option>
+        <option value="F">Fahrenheit (°F)</option>
+        <option value="K">Kelvin (K)</option>
+      </select>
+
+      <select id="toUnit">
+        <option value="F">Fahrenheit (°F)</option>
+        <option value="C">Celsius (°C)</option>
+        <option value="K">Kelvin (K)</option>
+      </select>
+
+      
+
+      <button onclick="convertTemp()"><b>Convert</b></button>
+      <p id="result"></p>
+    </div>
+
+    <div class="actions">
+      <button onclick="clearResult()"> Clear Result</button>
+      <button onclick="window.location.href='history.html'">View History</button>
+      
+
+    </div>
+  </div>
+
+
+ 
+  <!-- Toast -->
+  <div id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
